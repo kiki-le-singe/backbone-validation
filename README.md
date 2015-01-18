@@ -2,7 +2,7 @@
 
 ## Introduction
 
-> This project is first to train with tools like [GruntJS](http://gruntjs.com/), [Yeoman](http://yeoman.io/), [Backbone.js](http://backbonejs.org/), [Marionette.js](http://marionettejs.com/)... And then I used it like Boilerplate.
+> Personal tests of backbone.validation plugin [backbone.validation](https://github.com/thedersen/backbone.validation).
 
 ## Requirements
 

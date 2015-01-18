@@ -1,4 +1,4 @@
-# Marionette Boilerplate
+# Backbone Validation
 
 ## Introduction
 

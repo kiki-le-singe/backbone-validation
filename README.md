@@ -2,7 +2,7 @@
 
 ## Introduction
 
-> Personal tests of backbone.validation plugin [backbone.validation](https://github.com/thedersen/backbone.validation).
+> Personal tests of [backbone.validation](https://github.com/thedersen/backbone.validation) plugin. This project uses [marionette-boilerplate](https://github.com/kiki-le-singe/marionette-boilerplate).
 
 ## Requirements
 

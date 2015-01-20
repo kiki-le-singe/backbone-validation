@@ -19,6 +19,9 @@ require.config({
         underscore: '../bower_components/lodash/dist/lodash',
         backbone: '../bower_components/backbone/backbone',
 
+        /* backbone plugins */
+        'backbone.validation': '../bower_components/backbone-validation/dist/backbone-validation-amd',
+
         /* alias all marionette libs */
         marionette: '../bower_components/backbone.marionette/lib/core/backbone.marionette',
         'backbone.wreqr': '../bower_components/backbone.wreqr/lib/backbone.wreqr',

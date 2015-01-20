@@ -1,5 +1,6 @@
 define([
   'marionette',
+  'views/registerItemView',
   'views/postItemView',
   'views/helloWorldItemView',
   'views/librariesCompositeView',
@@ -7,7 +8,14 @@ define([
   'models/librariesCollection'
 ],
 
-function (Marionette, PostItemView, HelloWorldItemView, LibrariesCompositeView, HelloWorldModel, LibrariesCollection) {
+function (
+  Marionette,
+  RegisterItemView,
+  PostItemView,
+  HelloWorldItemView,
+  LibrariesCompositeView,
+  HelloWorldModel,
+  LibrariesCollection) {
   'use strict';
 
   var NavController = Marionette.Controller.extend({
@@ -29,6 +37,10 @@ function (Marionette, PostItemView, HelloWorldItemView, LibrariesCompositeView, 
 
     post: function () {
       return this.contentRegion.show(new PostItemView());
+    },
+
+    register: function () {
+      return this.contentRegion.show(new RegisterItemView());
     }
   });
 

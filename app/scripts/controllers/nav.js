@@ -1,5 +1,6 @@
 define([
   'marionette',
+  'models/userModel',
   'views/registerItemView',
   'views/postItemView',
   'views/helloWorldItemView',
@@ -10,6 +11,7 @@ define([
 
 function (
   Marionette,
+  UserModel,
   RegisterItemView,
   PostItemView,
   HelloWorldItemView,
@@ -40,7 +42,9 @@ function (
     },
 
     register: function () {
-      return this.contentRegion.show(new RegisterItemView());
+      return this.contentRegion.show(new RegisterItemView({
+        model: new UserModel()
+      }));
     }
   });
 

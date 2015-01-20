@@ -7,11 +7,11 @@ function (Marionette, templates) {
   'use strict';
 
   return Marionette.ItemView.extend({
-    template: templates.form,
-    className: 'form',
+    template: templates.post,
+    className: 'form--post',
 
     initialize: function () {
-      console.log('initialize: formItemView');
+      console.log('initialize: postItemView');
     }
   });
 });

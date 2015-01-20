@@ -1,13 +1,13 @@
 define([
   'marionette',
-  'views/formItemView',
+  'views/postItemView',
   'views/helloWorldItemView',
   'views/librariesCompositeView',
   'models/helloWorldModel',
   'models/librariesCollection'
 ],
 
-function (Marionette, FormItemView, HelloWorldItemView, LibrariesCompositeView, HelloWorldModel, LibrariesCollection) {
+function (Marionette, PostItemView, HelloWorldItemView, LibrariesCompositeView, HelloWorldModel, LibrariesCollection) {
   'use strict';
 
   var NavController = Marionette.Controller.extend({
@@ -27,8 +27,8 @@ function (Marionette, FormItemView, HelloWorldItemView, LibrariesCompositeView, 
       }));
     },
 
-    form: function () {
-      return this.contentRegion.show(new FormItemView());
+    post: function () {
+      return this.contentRegion.show(new PostItemView());
     }
   });
 

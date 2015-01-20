@@ -1,7 +1,7 @@
 define(function (require) {
   'use strict';
   return {
-    form: require('hbs!tmpl/form'),
+    post: require('hbs!tmpl/post'),
     menu: require('hbs!tmpl/menu'),
     'hello-world': require('hbs!tmpl/hello-world'),
     libraries: require('hbs!tmpl/libraries'),

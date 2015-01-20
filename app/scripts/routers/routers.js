@@ -7,7 +7,7 @@ function (Marionette) {
 
   var Router = Marionette.AppRouter.extend({
     appRoutes: {
-      form: 'form',
+      post: 'post',
       libraries: 'libraries',
       '': 'home'
     }

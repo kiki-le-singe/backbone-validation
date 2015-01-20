@@ -13,6 +13,7 @@ function (Backbone, Validation, UserRules) {
       lastName: '',
     },
 
+    validation: UserRules,
 
     initialize: function () {
       console.log('initialize: UserModel');

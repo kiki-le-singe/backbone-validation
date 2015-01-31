@@ -3,9 +3,12 @@ require.config({
     baseUrl: '/scripts',
 
     /* starting point for application */
-    deps: ['main'],
+    deps: ['main', 'bootstrap'],
 
     shim: {
+        bootstrap: {
+            deps: ['jquery']
+        },
         backbone: {
             deps: ['underscore', 'jquery']
         },
@@ -18,6 +21,7 @@ require.config({
         jquery: '../bower_components/jquery/dist/jquery',
         underscore: '../bower_components/lodash/dist/lodash',
         backbone: '../bower_components/backbone/backbone',
+        bootstrap: '../bower_components/bootstrap/dist/js/bootstrap',
 
         /* backbone plugins */
         'backbone.validation': '../bower_components/backbone-validation/dist/backbone-validation-amd',

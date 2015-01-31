@@ -5,10 +5,13 @@ define([], function () {
     username: {
       required: true
     },
-    email: {
-      required: true,
-      pattern: 'email'
-    },
+    email: [{
+        required: true,
+        msg: 'Please enter an email address'
+    },{
+      pattern: 'email',
+      msg: 'Please enter a valid email'
+    }],
     password: {
       minLength: 8
     },

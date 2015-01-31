@@ -13,7 +13,7 @@ function (Marionette, NavController, MenuItemView, Routers, Vent) {
 
   /* Add application regions here */
   App.addRegions({
-    header: '#header',
+    nav: '.navbar',
     content: '#content',
     footer: '#footer'
   });
@@ -24,7 +24,7 @@ function (Marionette, NavController, MenuItemView, Routers, Vent) {
       controller: new NavController({contentRegion: App.content})
     });
 
-    this.header.show(new MenuItemView());
+    this.nav.show(new MenuItemView());
 
     Vent.trigger('APP:START');
   });

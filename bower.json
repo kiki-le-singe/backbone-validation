@@ -21,7 +21,8 @@
     "requirejs-plugins": "~1.0.2",
     "requirejs-hbs": "*",
     "handlebars": "^2.0.0",
-    "backbone-validation": "~0.9.1"
+    "backbone-validation": "~0.9.1",
+    "bootstrap": "~3.3.2"
   },
   "devDependencies": {
     "mocha": "1.20.1",

@@ -10,6 +10,12 @@ function (Marionette, templates) {
     template: templates.register,
     className: 'form--register',
 
+    behaviors: {
+      PreventClick: {
+        behaviorClass: behaviors.preventClick
+      }
+    },
+
     initialize: function () {
       console.log('initialize: registerItemView');
     }

@@ -28,7 +28,7 @@ define([], function () {
       msg: 'The passwords does not match'
     }],
     country: {
-      oneOf: ['Brazil', 'France', 'United Kingdom', 'United States']
+      oneOf: ['BR', 'FR', 'UK', 'US']
     },
     gender: {
       required: true,

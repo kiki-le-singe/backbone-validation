@@ -22,7 +22,8 @@
     "requirejs-hbs": "*",
     "handlebars": "^2.0.0",
     "backbone-validation": "~0.9.1",
-    "bootstrap": "~3.3.2"
+    "bootstrap": "~3.3.2",
+    "marionette.backbone.syphon": "~0.5.0"
   },
   "devDependencies": {
     "mocha": "1.20.1",

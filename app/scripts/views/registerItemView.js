@@ -33,13 +33,27 @@ function (Marionette, Validation, Syphon, behaviors, templates) {
       // https://github.com/thedersen/backbone.validation#validation-binding
       // https://github.com/thedersen/backbone.validation#callbacks
       Validation.bind(this, {
-        valid: function (view, attr) {
-          // do something
+        valid: function (view, attr, selector) {
           debugger
+          var $el = view.$('[name=' + attr + ']');
+          var $group = $el.closest('.form-group');
+
+          if ($group.hasClass('has-error')) {
+            $group.removeClass('has-error');
+          }
+
+          $group.addClass('has-success');
         },
-        invalid: function (view, attr, error) {
-          // do something
+        invalid: function (view, attr, error, selector) {
           debugger
+          var $el = view.$('[name=' + attr + ']');
+          var $group = $el.closest('.form-group');
+
+          if ($group.hasClass('has-success')) {
+            $group.removeClass('has-success');
+          }
+
+          $group.addClass('has-error');
         }
       });
     },

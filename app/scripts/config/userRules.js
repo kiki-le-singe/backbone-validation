@@ -3,7 +3,8 @@ define([], function () {
 
   return {
     username: {
-      required: true
+      required: true,
+      msg: 'Username is required'
     },
     email: [{
         required: true,
@@ -12,18 +13,26 @@ define([], function () {
       pattern: 'email',
       msg: 'Please enter a valid email'
     }],
-    password: {
-      minLength: 8
-    },
-    repeatPassword: {
+    password: [{
+        required: true,
+        msg: 'Password is required'
+    },{
+      minLength: 8,
+      msg: 'Password must be at least 8 characters long'
+    }],
+    confirmPassword: [{
+        required: true,
+        msg: 'Confirm password is required'
+    },{
       equalTo: 'password',
       msg: 'The passwords does not match'
-    },
+    }],
     country: {
       oneOf: ['Brazil', 'France', 'United Kingdom', 'United States']
     },
     gender: {
-      required: true
+      required: true,
+      msg: 'Gender is required'
     },
     age: {
       required: false,

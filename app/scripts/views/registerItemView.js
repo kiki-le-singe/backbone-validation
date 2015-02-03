@@ -1,11 +1,12 @@
 define([
   'marionette',
   'backbone.validation',
+  'backbone.syphon',
   'behaviors/index',
   'templates'
 ],
 
-function (Marionette, Validation, behaviors, templates) {
+function (Marionette, Validation, Syphon, behaviors, templates) {
   'use strict';
 
   return Marionette.ItemView.extend({
@@ -49,12 +50,9 @@ function (Marionette, Validation, behaviors, templates) {
     },
 
     signUp: function () {
-      // var data = Backbone.Syphon.serialize(this);
-      // this.model.set(data);
-
-      this.model.set({
-        email: 'ddsfdd'
-      });
+      // https://github.com/marionettejs/backbone.syphon#basic-usage--serialize
+      var data = Syphon.serialize(this);
+      this.model.set(data);
 
       // https://github.com/thedersen/backbone.validation#isvalid
       if (this.model.isValid(true)) {

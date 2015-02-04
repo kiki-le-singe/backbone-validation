@@ -48,10 +48,17 @@ function (Marionette, Validation, Syphon, behaviors, templates) {
           debugger
           var $el = view.$('[name=' + attr + ']');
           var $group = $el.closest('.form-group');
+          var $alert = view.$('.alert-danger');
 
           if ($group.hasClass('has-success')) {
             $group.removeClass('has-success');
           }
+
+          if ($alert.hasClass('hidden')) {
+            $alert.removeClass('hidden').addClass('show animated-opacity');
+          }
+          // TODO: Create helper text wrapper
+          $alert.append('<p>' + error + '</p>');
 
           $group.addClass('has-error');
         }

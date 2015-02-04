@@ -1,0 +1,12 @@
+.alert {
+  margin: 5% 5% 0 5%;
+}
+
+@-webkit-keyframes animatedOpacity {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.animated-opacity {
+  -webkit-animation: animatedOpacity 0.5s ease-in-out;
+}

@@ -42,36 +42,40 @@ function (Marionette, Validation, Syphon) {
       // https://github.com/thedersen/backbone.validation#validation-binding
       // https://github.com/thedersen/backbone.validation#callbacks
       Validation.bind(this.view, {
-        valid: function (view, attr, selector) {
-          debugger
-          var $el = view.$('[name=' + attr + ']');
-          var $group = $el.closest('.form-group');
-
-          if ($group.hasClass('has-error')) {
-            $group.removeClass('has-error');
-          }
-
-          $group.addClass('has-success');
-        },
-        invalid: function (view, attr, error, selector) {
-          debugger
-          var $el = view.$('[name=' + attr + ']');
-          var $group = $el.closest('.form-group');
-          var $alert = view.$('.alert-danger');
-
-          if ($group.hasClass('has-success')) {
-            $group.removeClass('has-success');
-          }
-
-          if ($alert.hasClass('hidden')) {
-            $alert.removeClass('hidden').addClass('show animated-opacity');
-          }
-          // TODO: Create helper text wrapper
-          $alert.append('<p>' + error + '</p>');
-
-          $group.addClass('has-error');
-        }
+        valid: this.valid.bind(this),
+        invalid: this.invalid.bind(this)
       });
+    },
+
+    valid: function (view, attr, selector) {
+      debugger
+      var $el = view.$('[name=' + attr + ']');
+      var $group = $el.closest(this.groupSelector);
+
+      if ($group.hasClass(this.errorCLass)) {
+        $group.removeClass(this.errorCLass);
+      }
+
+      $group.addClass(this.successCLass);
+    },
+
+    invalid: function (view, attr, error, selector) {
+      debugger
+      var $el = view.$('[name=' + attr + ']');
+      var $group = $el.closest(this.groupSelector);
+      var $alert = this.ui.alertDanger;
+
+      if ($group.hasClass(this.successCLass)) {
+        $group.removeClass(this.successCLass);
+      }
+
+      if ($alert.hasClass(this.hiddenCLass)) {
+        $alert.removeClass(this.hiddenCLass).addClass(this.showCLass);
+      }
+      // TODO: Create helper text wrapper
+      $alert.append('<p>' + error + '</p>');
+
+      $group.addClass(this.errorCLass);
     },
 
     onDestroy: function () {

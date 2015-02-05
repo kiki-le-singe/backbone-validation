@@ -12,11 +12,11 @@ function (Marionette, behaviors, templates) {
     className: 'form--register',
 
     behaviors: {
-      FormValidation: {
-        behaviorClass: behaviors.formValidation,
-      },
       PreventClick: {
         behaviorClass: behaviors.preventClick
+      },
+      FormValidation: {
+        behaviorClass: behaviors.formValidation,
       }
     },
 

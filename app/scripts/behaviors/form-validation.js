@@ -8,6 +8,18 @@ function (Marionette, Validation, Syphon) {
   'use strict';
 
   return Marionette.Behavior.extend({
+    defaults: {
+      selectors: {
+        group: '.form-group',
+      },
+      class: {
+        error: 'has-error',
+        success: 'has-success',
+        hidden: 'hidden',
+        show: 'show animated-opacity',
+      }
+    },
+
     ui: {
       submitButton: 'button[type="submit"]'
     },
@@ -18,6 +30,11 @@ function (Marionette, Validation, Syphon) {
 
     initialize: function () {
       this.model = this.view.options.model || null;
+      this.groupSelector = this.options.selectors.group;
+      this.errorCLass = this.options.class.error;
+      this.successCLass = this.options.class.success;
+      this.hiddenCLass = this.options.class.hidden;
+      this.showCLass = this.options.class.show;
     },
 
     onDomRefresh: function () {

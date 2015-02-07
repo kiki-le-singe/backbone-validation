@@ -56,39 +56,35 @@ function (Marionette, Validation, Syphon) {
     },
 
     valid: function (view, attr, selector) {
-      debugger
       var $el = view.$('[name=' + attr + ']');
       var $group = $el.closest(this.groupSelector);
 
+      // handles $group
       if ($group.hasClass(this.errorCLass)) {
         $group.removeClass(this.errorCLass);
       }
-
       $group.addClass(this.successCLass);
     },
 
     invalid: function (view, attr, error, selector) {
-      debugger
       var $el = view.$('[name=' + attr + ']');
       var $group = $el.closest(this.groupSelector);
-      var $alert = this.ui.alertDanger;
+      var $alert = this.ui.alert;
 
+      // handles $group
       if ($group.hasClass(this.successCLass)) {
         $group.removeClass(this.successCLass);
       }
+      $group.addClass(this.errorCLass);
 
+      // handles $alert
       if ($alert.hasClass(this.hiddenCLass)) {
         $alert.removeClass(this.hiddenCLass).addClass(this.showCLass);
       }
-      // TODO: Create helper text wrapper
-      $alert.append('<p>' + error + '</p>');
-
-      $group.addClass(this.errorCLass);
-    },
-
       if ($alert.hasClass(this.hideCLass)) {
         $alert.removeClass(this.hideCLass).addClass(this.showCLass);
       }
+      $alert.append('<p>' + error + '</p>'); // TODO: Create helper text wrapper
     },
 
     submit: function () {

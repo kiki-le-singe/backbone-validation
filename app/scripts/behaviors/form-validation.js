@@ -16,7 +16,8 @@ function (Marionette, Validation, Syphon) {
         error: 'has-error',
         success: 'has-success',
         hidden: 'hidden',
-        show: 'show animated-opacity',
+        hide: 'fadeOut',
+        show: 'fadeIn',
       }
     },
 

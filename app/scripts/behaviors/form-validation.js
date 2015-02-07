@@ -22,7 +22,7 @@ function (Marionette, Validation, Syphon) {
     },
 
     ui: {
-      alertDanger: '.alert-danger',
+      alert: '.alert-danger',
       submitButton: 'button[type="submit"]'
     },
 

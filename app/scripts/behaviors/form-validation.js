@@ -26,6 +26,7 @@ function (Marionette, Validation, Syphon) {
     },
 
     events: {
+      'click @ui.alert': 'hide',
       'click @ui.submitButton': 'submit'
     },
 
@@ -93,6 +94,12 @@ function (Marionette, Validation, Syphon) {
         // this.model.save();
         console.log('Great Success!');
       }
+    },
+
+    hide: function () {
+      this.ui.alert
+        .addClass(this.hideCLass)
+        .removeClass(this.showCLass);
     }
   });
 });

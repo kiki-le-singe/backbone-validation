@@ -103,6 +103,13 @@ function (Marionette, Validation, Syphon) {
       this.ui.alert
         .addClass(this.hideCLass)
         .removeClass(this.showCLass);
+
+      // Detect When CSS3 Animations and Transitions End:
+      // - http://stackoverflow.com/questions/9255279/callback-when-css3-transition-finishes?answertab=votes#tab-top
+      // - http://blog.teamtreehouse.com/using-jquery-to-detect-when-css3-animations-and-transitions-end
+      this.ui.alert.one('webkitAnimationEnd', function () {
+        this.innerHTML = '';
+      });
     }
   });
 });

@@ -50,6 +50,11 @@ function (Marionette, Validation, Syphon) {
       });
     },
 
+    onDestroy: function () {
+      // https://github.com/thedersen/backbone.validation#unbinding
+      Validation.unbind(this.view);
+    },
+
     valid: function (view, attr, selector) {
       debugger
       var $el = view.$('[name=' + attr + ']');
@@ -81,9 +86,6 @@ function (Marionette, Validation, Syphon) {
       $group.addClass(this.errorCLass);
     },
 
-    onDestroy: function () {
-      // https://github.com/thedersen/backbone.validation#unbinding
-      Validation.unbind(this.view);
       if ($alert.hasClass(this.hideCLass)) {
         $alert.removeClass(this.hideCLass).addClass(this.showCLass);
       }

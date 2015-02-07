@@ -34,6 +34,7 @@ function (Marionette, Validation, Syphon) {
     initialize: function () {
       this.model = this.view.options.model || null;
       this.groupSelector = this.options.selectors.group;
+      this.hideCLass = this.options.class.hide;
       this.errorCLass = this.options.class.error;
       this.successCLass = this.options.class.success;
       this.hiddenCLass = this.options.class.hidden;
@@ -83,6 +84,9 @@ function (Marionette, Validation, Syphon) {
     onDestroy: function () {
       // https://github.com/thedersen/backbone.validation#unbinding
       Validation.unbind(this.view);
+      if ($alert.hasClass(this.hideCLass)) {
+        $alert.removeClass(this.hideCLass).addClass(this.showCLass);
+      }
     },
 
     submit: function () {

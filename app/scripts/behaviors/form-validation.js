@@ -90,6 +90,9 @@ function (Marionette, Validation, Syphon) {
       // run timer
       this.runTimer(5000);
 
+      // disable submit button for to avoid multiple submissions
+      this.disable();
+
       // https://github.com/thedersen/backbone.validation#isvalid
       if (this.model.isValid(true)) {
         // this.model.save();
@@ -98,6 +101,8 @@ function (Marionette, Validation, Syphon) {
     },
 
     hide: function () {
+      var self = this;
+
       this.killTimer();
 
       this.ui.alert
@@ -109,6 +114,7 @@ function (Marionette, Validation, Syphon) {
       // - http://blog.teamtreehouse.com/using-jquery-to-detect-when-css3-animations-and-transitions-end
       this.ui.alert.one('webkitAnimationEnd', function () {
         this.innerHTML = '';
+        self.enable();
       });
     },
 

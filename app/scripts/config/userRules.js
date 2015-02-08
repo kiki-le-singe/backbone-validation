@@ -27,6 +27,11 @@ define([], function () {
       equalTo: 'password',
       msg: 'The passwords does not match'
     }],
+    website: {
+      required: false,
+      pattern: 'url',
+      msg: 'Please enter a valid url'
+    },
     country: {
       oneOf: ['BR', 'FR', 'UK', 'US']
     },

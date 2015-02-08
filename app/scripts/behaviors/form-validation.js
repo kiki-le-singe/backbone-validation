@@ -96,6 +96,8 @@ function (Marionette, Validation, Syphon) {
     },
 
     hide: function () {
+      this.killTimer();
+
       this.ui.alert
         .addClass(this.hideCLass)
         .removeClass(this.showCLass);
@@ -132,6 +134,11 @@ function (Marionette, Validation, Syphon) {
         self.hide();
       }, timeout);
     },
+
+    killTimer: function () {
+      if (this.timer) {
+        clearTimeout(this.timer);
+      }
     }
   });
 });

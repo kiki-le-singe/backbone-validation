@@ -138,6 +138,7 @@ function (Marionette, Validation, Syphon) {
     killTimer: function () {
       if (this.timer) {
         clearTimeout(this.timer);
+        this.timer = undefined;
       }
     }
   });

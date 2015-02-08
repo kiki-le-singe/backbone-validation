@@ -69,7 +69,6 @@ function (Marionette, Validation, Syphon) {
     invalid: function (view, attr, error, selector) {
       var $el = view.$('[name=' + attr + ']');
       var $group = $el.closest(this.groupSelector);
-      var $alert = this.ui.alert;
 
       // handles $group
       if ($group.hasClass(this.successCLass)) {
@@ -77,14 +76,8 @@ function (Marionette, Validation, Syphon) {
       }
       $group.addClass(this.errorCLass);
 
-      // handles $alert
-      if ($alert.hasClass(this.hiddenCLass)) {
-        $alert.removeClass(this.hiddenCLass).addClass(this.showCLass);
-      }
-      if ($alert.hasClass(this.hideCLass)) {
-        $alert.removeClass(this.hideCLass).addClass(this.showCLass);
-      }
-      $alert.append('<p>' + error + '</p>'); // TODO: Create helper text wrapper
+      // show alert with error messages
+      this.show(error);
     },
 
     submit: function () {
@@ -110,6 +103,21 @@ function (Marionette, Validation, Syphon) {
       this.ui.alert.one('webkitAnimationEnd', function () {
         this.innerHTML = '';
       });
+    },
+
+    show: function (error) {
+      var $alert = this.ui.alert;
+      error = error || 'mickey';
+
+      // handles $alert
+      if ($alert.hasClass(this.hiddenCLass)) {
+        $alert.removeClass(this.hiddenCLass).addClass(this.showCLass);
+      }
+      if ($alert.hasClass(this.hideCLass)) {
+        $alert.removeClass(this.hideCLass).addClass(this.showCLass);
+      }
+      $alert.append('<p>' + error + '</p>'); // TODO: Create helper text wrapper
+    },
     }
   });
 });

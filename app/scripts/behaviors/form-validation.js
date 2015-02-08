@@ -85,6 +85,9 @@ function (Marionette, Validation, Syphon) {
       var data = Syphon.serialize(this.view);
       this.model.set(data);
 
+      // run timer
+      this.runTimer(5000);
+
       // https://github.com/thedersen/backbone.validation#isvalid
       if (this.model.isValid(true)) {
         // this.model.save();
@@ -117,6 +120,17 @@ function (Marionette, Validation, Syphon) {
         $alert.removeClass(this.hideCLass).addClass(this.showCLass);
       }
       $alert.append('<p>' + error + '</p>'); // TODO: Create helper text wrapper
+    },
+
+    runTimer: function (timeout) {
+      var self = this;
+      timeout = timeout || 2000;
+
+      this.killTimer();
+
+      this.timer = setTimeout(function () {
+        self.hide();
+      }, timeout);
     },
     }
   });

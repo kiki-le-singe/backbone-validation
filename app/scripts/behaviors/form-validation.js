@@ -13,6 +13,7 @@ function (Marionette, Validation, Syphon) {
         group: '.form-group',
       },
       class: {
+        disabled: 'disabled',
         error: 'has-error',
         success: 'has-success',
         hidden: 'hidden',
@@ -39,6 +40,7 @@ function (Marionette, Validation, Syphon) {
       this.successCLass = this.options.class.success;
       this.hiddenCLass = this.options.class.hidden;
       this.showCLass = this.options.class.show;
+      this.disabledCLass = this.options.class.disabled;
     },
 
     onDomRefresh: function () {
@@ -140,6 +142,14 @@ function (Marionette, Validation, Syphon) {
         clearTimeout(this.timer);
         this.timer = undefined;
       }
+    },
+
+    disable: function () {
+      this.ui.submitButton.addClass(this.disabledCLass);
+    },
+
+    enable: function () {
+      this.ui.submitButton.removeClass(this.disabledCLass);
     }
   });
 });

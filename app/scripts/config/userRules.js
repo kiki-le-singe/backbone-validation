@@ -3,14 +3,14 @@ define([], function () {
 
   return {
     username: {
-      required: true,
+      required: true, // https://github.com/thedersen/backbone.validation#required
       msg: 'Username is required'
     },
     email: [{
         required: true,
         msg: 'Please enter an email address'
     },{
-      pattern: 'email',
+      pattern: 'email', // https://github.com/thedersen/backbone.validation#pattern
       msg: 'Please enter a valid email'
     }],
     password: [{
@@ -41,7 +41,7 @@ define([], function () {
     terms: {
       acceptance: true
     },
-    someAttribute: function (value) {
+    someAttribute: function (value) { // https://github.com/thedersen/backbone.validation#method-validator
       if ('somevalue' !== value) {
         return 'Error message';
       }

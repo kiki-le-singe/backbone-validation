@@ -32,6 +32,11 @@ define([], function () {
       pattern: 'url',
       msg: 'Please enter a valid url'
     },
+    tel: {
+      required: false,
+      pattern: /^[0-9]+([-. ]?[0-9]+){4,14}$/,
+      msg: 'Please enter a valid telephone number'
+    },
     country: {
       oneOf: ['BR', 'FR', 'UK', 'US']
     },

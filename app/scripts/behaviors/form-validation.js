@@ -95,7 +95,6 @@ function (Marionette, Validation, Syphon) {
 
       // https://github.com/thedersen/backbone.validation#isvalid
       if (this.model.isValid(true)) {
-        // this.model.save();
         console.log('Great Success!');
       }
     },

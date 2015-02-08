@@ -36,6 +36,7 @@ function (Backbone, Validation, UserRules) {
 
     validatedValid: function (model) {
       debugger
+      // this.save();
     },
 
     validatedInvalid: function (model, errors) {

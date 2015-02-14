@@ -29,7 +29,7 @@ function (Marionette, Validation, Syphon) {
 
     events: {
       'click @ui.alert': 'hide',
-      'click @ui.submitButton': 'submit'
+      submit: 'submit'
     },
 
     initialize: function () {

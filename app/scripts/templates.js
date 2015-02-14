@@ -1,6 +1,7 @@
 define(function (require) {
   'use strict';
   return {
+    'root-layout': require('hbs!tmpl/root-layout'),
     register: require('hbs!tmpl/register'),
     post: require('hbs!tmpl/post'),
     menu: require('hbs!tmpl/menu'),

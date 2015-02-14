@@ -1,32 +1,25 @@
 define([
   'marionette',
   'controllers/nav',
+  'views/rootLayoutView',
   'views/menuItemView',
-  'routers/routers',
-  'vent'
+  'routers/routers'
 ],
 
-function (Marionette, NavController, MenuItemView, Routers, Vent) {
+function (Marionette, NavController, RootLayoutView, MenuItemView, Routers) {
   'use strict';
 
   var App = new Marionette.Application();
 
-  /* Add application regions here */
-  App.addRegions({
-    nav: '.navbar',
-    content: '#content',
-    footer: '#footer'
-  });
+  // When the application is ready
+  App.on('start', function () {
+    var rootLayoutView = new RootLayoutView();
+    rootLayoutView.render();
+    rootLayoutView.nav.show(new MenuItemView());
 
-  /* Add initializers here */
-  App.addInitializer(function () {
     this.routers = new Routers({
-      controller: new NavController({contentRegion: App.content})
+      controller: new NavController({contentRegion: rootLayoutView.content})
     });
-
-    this.nav.show(new MenuItemView());
-
-    Vent.trigger('APP:START');
   });
 
   return App;

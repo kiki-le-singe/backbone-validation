@@ -12,7 +12,7 @@
   "dependencies": {
     "jquery": "^2.1.0",
     "lodash": "^2.4.1",
-    "backbone.marionette": "^2.1.0",
+    "marionette": "^2.3.2",
     "requirejs": "^2.1.5",
     "requirejs-text": "^2.0.10",
     "modernizr": "~2.6.2",

@@ -1,18 +1,18 @@
 define([
-  'marionette'
+  'marionette',
+  '#dialogs/views/alert'
 ],
 
-function (
-  Marionette) {
+function (Marionette, AlertView) {
   'use strict';
 
   return Marionette.Controller.extend({
-    initialize: function (options) {
-      this.dialogsRegion = options.dialogsRegion || 'body';
+    initialize: function () {
+      this.dialogsRegion = this.getOption('dialogsRegion');
     },
 
     show: function () {
-      debugger
+      return this.dialogsRegion.show(new AlertView());
     },
 
     hide: function () {

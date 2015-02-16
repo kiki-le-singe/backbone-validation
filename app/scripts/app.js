@@ -22,6 +22,11 @@ define(function (require) {
     this.routers = new Routers({
       controller: new NavController(options)
     });
+
+    // load modules
+    require(['#dialogs/app'], function (dialogs) {
+
+      dialogs({dialogsRegion: rootLayoutView.dialogs}).start();
     });
   });
 

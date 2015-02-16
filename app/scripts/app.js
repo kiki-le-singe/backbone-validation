@@ -12,11 +12,16 @@ define(function (require) {
   // When the application is ready
   App.on('start', function () {
     var rootLayoutView = new RootLayoutView();
+    var options = {
+      contentRegion: rootLayoutView.content
+    };
+
     rootLayoutView.render();
     rootLayoutView.nav.show(new MenuItemView());
 
     this.routers = new Routers({
-      controller: new NavController({contentRegion: rootLayoutView.content})
+      controller: new NavController(options)
+    });
     });
   });
 

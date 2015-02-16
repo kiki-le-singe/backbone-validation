@@ -11,6 +11,7 @@ function (Marionette, templates) {
     template: templates['root-layout'],
 
     regions: {
+      dialogs: '.dialogs',
       nav: '.navbar',
       content: '#content',
       footer: '#footer'

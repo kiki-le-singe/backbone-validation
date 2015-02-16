@@ -1,13 +1,11 @@
-define([
-  'marionette',
-  'controllers/nav',
-  'views/rootLayoutView',
-  'views/menuItemView',
-  'routers/routers'
-],
-
-function (Marionette, NavController, RootLayoutView, MenuItemView, Routers) {
+define(function (require) {
   'use strict';
+
+  var Marionette = require('marionette');
+  var NavController = require('controllers/nav');
+  var RootLayoutView = require('views/rootLayoutView');
+  var MenuItemView = require('views/menuItemView');
+  var Routers = require('routers/routers');
 
   var App = new Marionette.Application();
 

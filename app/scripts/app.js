@@ -24,7 +24,7 @@ define(function (require) {
     });
 
     // load modules
-    require(['#dialogs/app'], function (dialogs) {
+    require(['#dialogs/index'], function (dialogs) {
 
       dialogs({dialogsRegion: rootLayoutView.dialogs}).start();
     });

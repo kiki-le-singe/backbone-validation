@@ -1,9 +1,9 @@
 define([
-  'backbone.wreqr'
+  'backbone.radio'
 ],
 
-function (Wreqr) {
+function (Radio) {
   'use strict';
 
-  return new Wreqr.EventAggregator();
+  return new Radio.channel('global');
 });

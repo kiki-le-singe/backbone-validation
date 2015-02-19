@@ -32,6 +32,7 @@ require.config({
     /* alias all marionette libs */
     marionette: '../bower_components/marionette/lib/backbone.marionette',
     'backbone.wreqr': '../bower_components/backbone.wreqr/lib/backbone.wreqr',
+    'backbone.radio': '../bower_components/backbone.radio/build/backbone.radio',
     'backbone.babysitter': '../bower_components/backbone.babysitter/lib/backbone.babysitter',
     'backbone.syphon': '../bower_components/marionette.backbone.syphon/lib/backbone.syphon',
 

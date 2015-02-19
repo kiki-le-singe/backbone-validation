@@ -3,7 +3,7 @@ require.config({
   baseUrl: '/scripts',
 
   /* starting point for application */
-  deps: ['app-init', 'bootstrap'],
+  deps: ['index', 'bootstrap'],
 
   shim: {
     bootstrap: {

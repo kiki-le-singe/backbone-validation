@@ -11,6 +11,12 @@ function (Marionette, templates) {
 
     initialize: function () {
       console.log('initialize: alertView');
+    },
+
+    serializeData: function () {
+      var data = {};
+      data.errors = this.getOption('errors');
+      return data;
     }
   });
 });

@@ -1,10 +1,11 @@
 define([
   'backbone',
   'backbone.validation',
-  'config/userRules'
+  'config/userRules',
+  'vent'
 ],
 
-function (Backbone, Validation, UserRules) {
+function (Backbone, Validation, UserRules, vent) {
   'use strict';
 
   return Backbone.Model.extend({
@@ -40,7 +41,11 @@ function (Backbone, Validation, UserRules) {
     },
 
     validatedInvalid: function (model, errors) {
-      debugger
+      var options = {
+        model: model,
+        errors: errors
+      };
+      vent.trigger('dialogs:show', options);
     }
   });
 });

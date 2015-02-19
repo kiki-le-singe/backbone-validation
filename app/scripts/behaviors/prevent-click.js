@@ -8,12 +8,11 @@ function (Marionette) {
 
   return Marionette.Behavior.extend({
     ui: {
-      submit: '*[type="submit"]',
       link: 'a'
     },
 
     events: {
-      'click @ui.submit': 'preventClickAction',
+      submit: 'preventClickAction',
       'click @ui.link': 'preventClickAction'
     },
 

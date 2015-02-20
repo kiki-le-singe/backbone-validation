@@ -16,10 +16,6 @@ function (Marionette, AlertView, vent) {
 
     show: function (options) {
       return this.dialogsRegion.show(new AlertView(options));
-    },
-
-    hide: function () {
-      debugger
     }
   });
 });

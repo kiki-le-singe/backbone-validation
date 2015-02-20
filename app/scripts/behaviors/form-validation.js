@@ -15,31 +15,23 @@ function (Marionette, Validation, Syphon) {
       class: {
         disabled: 'disabled',
         error: 'has-error',
-        success: 'has-success',
-        hidden: 'hidden',
-        hide: 'fadeOut',
-        show: 'fadeIn',
+        success: 'has-success'
       }
     },
 
     ui: {
-      alert: '.alert-danger',
       submitButton: 'button[type="submit"]'
     },
 
     events: {
-      'click @ui.alert': 'hide',
       submit: 'submit'
     },
 
     initialize: function () {
       this.model = this.view.options.model || null;
       this.groupSelector = this.options.selectors.group;
-      this.hideCLass = this.options.class.hide;
       this.errorCLass = this.options.class.error;
       this.successCLass = this.options.class.success;
-      this.hiddenCLass = this.options.class.hidden;
-      this.showCLass = this.options.class.show;
       this.disabledCLass = this.options.class.disabled;
     },
 
@@ -77,9 +69,6 @@ function (Marionette, Validation, Syphon) {
         $group.removeClass(this.successCLass);
       }
       $group.addClass(this.errorCLass);
-
-      // show alert with error messages
-      this.show(error);
     },
 
     submit: function () {
@@ -87,65 +76,12 @@ function (Marionette, Validation, Syphon) {
       var data = Syphon.serialize(this.view);
       this.model.set(data);
 
-      // run timer
-      this.runTimer(5000);
-
       // disable submit button for to avoid multiple submissions
       this.disable();
 
       // https://github.com/thedersen/backbone.validation#isvalid
       if (this.model.isValid(true)) {
         console.log('Great Success!');
-      }
-    },
-
-    hide: function () {
-      var self = this;
-
-      this.killTimer();
-
-      this.ui.alert
-        .addClass(this.hideCLass)
-        .removeClass(this.showCLass);
-
-      // Detect When CSS3 Animations and Transitions End:
-      // - http://stackoverflow.com/questions/9255279/callback-when-css3-transition-finishes?answertab=votes#tab-top
-      // - http://blog.teamtreehouse.com/using-jquery-to-detect-when-css3-animations-and-transitions-end
-      this.ui.alert.one('webkitAnimationEnd', function () {
-        this.innerHTML = '';
-        self.enable();
-      });
-    },
-
-    show: function (error) {
-      var $alert = this.ui.alert;
-      error = error || 'mickey';
-
-      // handles $alert
-      if ($alert.hasClass(this.hiddenCLass)) {
-        $alert.removeClass(this.hiddenCLass).addClass(this.showCLass);
-      }
-      if ($alert.hasClass(this.hideCLass)) {
-        $alert.removeClass(this.hideCLass).addClass(this.showCLass);
-      }
-      $alert.append('<p>' + error + '</p>'); // TODO: Create helper text wrapper
-    },
-
-    runTimer: function (timeout) {
-      var self = this;
-      timeout = timeout || 2000;
-
-      this.killTimer();
-
-      this.timer = setTimeout(function () {
-        self.hide();
-      }, timeout);
-    },
-
-    killTimer: function () {
-      if (this.timer) {
-        clearTimeout(this.timer);
-        this.timer = undefined;
       }
     },
 

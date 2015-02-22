@@ -38,6 +38,9 @@ function (Marionette, vent, templates) {
 
     show: function () {
       var self = this;
+    onDestroy: function () {
+      vent.trigger('form:enable');
+    },
 
       this.ui.alert.removeClass(this.hiddenCLass).addClass(this.showCLass);
 
@@ -59,9 +62,7 @@ function (Marionette, vent, templates) {
       // Detect When CSS3 Animations and Transitions End:
       // - http://stackoverflow.com/questions/9255279/callback-when-css3-transition-finishes?answertab=votes#tab-top
       // - http://blog.teamtreehouse.com/using-jquery-to-detect-when-css3-animations-and-transitions-end
-      $alert.one('webkitAnimationEnd', function () {
-        vent.trigger('form:enable');
-      });
+        this.destroy();
     },
 
     runTimer: function (timeout) {

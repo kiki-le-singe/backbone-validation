@@ -52,11 +52,9 @@ function (Marionette, vent, templates) {
     },
 
     hide: function () {
-      var $alert = this.ui.alert;
-
       this.killTimer();
 
-      $alert.addClass(this.hideCLass).removeClass(this.showCLass);
+      this.ui.alert.addClass(this.hideCLass).removeClass(this.showCLass);
 
       // Detect When CSS3 Animations and Transitions End:
       // - http://stackoverflow.com/questions/9255279/callback-when-css3-transition-finishes?answertab=votes#tab-top

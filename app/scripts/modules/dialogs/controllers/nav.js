@@ -15,7 +15,8 @@ function (Marionette, AlertView, vent) {
     },
 
     show: function (options) {
-      return this.dialogsRegion.show(new AlertView(options));
+      // https://github.com/marionettejs/backbone.marionette/blob/master/docs/marionette.region.md#preventdestroy
+      return this.dialogsRegion.show(new AlertView(options), {preventDestroy: true});
     }
   });
 });

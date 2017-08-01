@@ -74,7 +74,7 @@ By default the root access for the API is http://localhost:9000/api. Available e
 
 The library used for tests are :
 
- * [mocha](http://visionmedia.github.io/mocha/)
+ * [mocha](http://mochajs.org/)
  * [sinon](http://sinonjs.org/)
  * [chai](http://chaijs.com/)
 
